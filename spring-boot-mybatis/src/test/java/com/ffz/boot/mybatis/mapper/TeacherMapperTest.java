@@ -35,4 +35,10 @@ class TeacherMapperTest {
         List<Teacher> teacherList = teacherMapper.selectAll();
         System.out.println(teacherList);
     }
+
+    @Test
+    void insertTeacher() {
+        Teacher teacher = Teacher.builder().teacherName("李老师").clazzId(1).build();
+        teacherMapper.insertTeacher(teacher);
+    }
 }

@@ -26,4 +26,5 @@ public interface TeacherMapper {
      */
     List<Teacher> findAll();
 
+    void insertTeacher(Teacher teacher);
 }
