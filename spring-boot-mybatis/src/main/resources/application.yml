@@ -6,7 +6,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
+  #  指定相应接口对应的xml文件所在目录
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.potato.boot.mybatis.domain
+  #  实体类所在包
+  type-aliases-package: com.ffz.boot.mybatis.domain
   configuration:
+    # mybatis开启驼峰式命名
     map-underscore-to-camel-case: true
