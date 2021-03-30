@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ffz.boot.mybatis.mapper.TeacherMapper">
+  <resultMap id="teachertMap" type="com.ffz.boot.mybatis.domain.Teacher">
+    <id column="teacher_id" jdbcType="INTEGER" property="teacherId" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
+    <result column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+  </resultMap>
+<!--  <select id="findAll" resultType="com.ffz.boot.mybatis.domain.Teacher">-->
+<!--    SELECT *-->
+<!--    FROM t_teaacher-->
+<!--  </select>-->
+
+  <select id="findAll" resultMap="teachertMap">
+    SELECT *
+    FROM t_teaacher
+  </select>
+  </mapper>

@@ -3,6 +3,12 @@
   <component name="MyBatisCodeHelperDatasource">
     <option name="projectProfile">
       <ProjectProfile>
+        <option name="baseClassSearchXml" value="true" />
+        <option name="generatedClassPathList">
+          <list>
+            <option value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java/com/ffz/boot/mybatis/domain" />
+          </list>
+        </option>
         <option name="javaMapperPackage" value="com.ffz.boot.mybatis.mapper" />
         <option name="javaMapperPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
         <option name="javaModelPackage" value="com.ffz.boot.mybatis.domain" />
@@ -35,6 +41,8 @@
                   <option name="javaMapperPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
                   <option name="javaModelPacakge" value="com.ffz.boot.mybatis.domain" />
                   <option name="javaModelPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
                   <option name="xmlPackage" value="mapper" />
                   <option name="xmlPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/resources" />
                 </UserPackageAndPathInfoByModule>
@@ -95,8 +103,59 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="spring-boot-learning:t_clazz">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="clazz_id" />
+                  <option name="javaModelName" value="Clazz" />
+                  <option name="moduleName" value="spring-boot-mybatis" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="spring-boot-learning:t_course">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="course_id" />
+                  <option name="javaModelName" value="Course" />
+                  <option name="moduleName" value="spring-boot-mybatis" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="spring-boot-learning:t_course_student">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="CourseStudent" />
+                  <option name="moduleName" value="spring-boot-mybatis" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="spring-boot-learning:t_student">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="student_id" />
+                  <option name="javaModelName" value="Student" />
+                  <option name="moduleName" value="spring-boot-mybatis" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="spring-boot-learning:t_teacher">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="teacher_id" />
+                  <option name="javaModelName" value="Teacher" />
+                  <option name="moduleName" value="spring-boot-mybatis" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
           </map>
         </option>
+        <option name="typeAliasPackages" value="com.ffz.boot.mybatis.domain" />
         <option name="xmlMapperPackage" value="mapper" />
         <option name="xmlMapperPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/resources" />
       </ProjectProfile>

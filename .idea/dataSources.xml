@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db_soft1921@106.14.246.27" uuid="e1a281ab-e750-487d-afaf-4f2a318ebc79">
+    <data-source source="LOCAL" name="spring-boot-learning@localhost" uuid="3154c758-2cb7-49c4-b457-6b14240a2763">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://106.14.246.27:3306/db_soft1921</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/spring-boot-learning</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

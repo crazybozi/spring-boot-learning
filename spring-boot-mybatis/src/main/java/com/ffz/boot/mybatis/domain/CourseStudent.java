@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 /**
   *Classname com.ffz.boot.mybatis.domain.CourseStudent
   *Author ffz
-  *Data 2021-03-28
+  *Data 2021-03-30
   *Description
   */
 @Data

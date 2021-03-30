@@ -1,9 +1,6 @@
 package com.ffz.boot.mybatis.domain;
 
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,21 +9,21 @@ import lombok.NoArgsConstructor;
 /**
   *Classname com.ffz.boot.mybatis.domain.Student
   *Author ffz
-  *Data 2021-03-28
+  *Data 2021-03-30
   *Description
   */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student1 {
+public class Student {
     /**
     * 学生id
     */
     private Integer studentId;
 
     /**
-    * 学生所属班级的id
+    * 学生所属班级id
     */
     private Integer clazzId;
 
@@ -43,18 +40,10 @@ public class Student1 {
     /**
     * 出生日期
     */
-//    @JsonIgnore
-    private LocalDate birthday;
+    private Date birthday;
 
     /**
-     * 学生和班级多对一
-     */
-//    @JsonIgnore
-    private Clazz clazz;
-
-    /**
-     * 学生和课程多对多
-     */
-//    @JsonIgnore
-    private List<Course> courses;
+    * 班级管理老师的id
+    */
+    private Integer teacherId;
 }
