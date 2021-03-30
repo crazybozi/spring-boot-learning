@@ -108,4 +108,15 @@ class StudentMapperTest {
         List<Student> students = studentMapper.selectByDynamicSql(student);
         System.out.println(students);
     }
+
+    @Test
+    void getStudentManyToOne() {
+        Student student = studentMapper.getStudentManyToOne(1001);
+        System.out.println(student);
+        assertEquals(1001,student.getStudentId());
+        assertEquals("金晨星",student.getStudentName());
+        assertEquals(1,student.getClazz().getClazzId());
+        assertEquals("软件1921",student.getClazz().getClazzName());
+        assertEquals(0,student.getCourses().size());
+    }
 }

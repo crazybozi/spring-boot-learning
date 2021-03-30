@@ -34,7 +34,12 @@ public class Clazz {
     private Integer teacherId;
 
     /**
-     * 一方里声明多方的集合
+     * 管理班级的教师对象（一对一）
+     */
+    private Teacher teacher;
+
+    /**
+     * 一方里声明多方的集合（一对多）
      */
     private List<Student> students;
 }

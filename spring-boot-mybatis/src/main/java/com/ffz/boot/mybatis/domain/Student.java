@@ -2,6 +2,8 @@ package com.ffz.boot.mybatis.domain;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -48,4 +50,9 @@ public class Student {
      * 在多方里，声明一方的对象
      */
     private Clazz clazz;
+
+    /**
+     * 学生和课程多对多
+     */
+    private List<Course> courses;
 }

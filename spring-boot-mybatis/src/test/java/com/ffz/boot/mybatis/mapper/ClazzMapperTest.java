@@ -23,13 +23,20 @@ class ClazzMapperTest {
     private ClazzMapper clazzMapper;
 
     @Test
-    void getClazzOneToMany() {
-        Clazz clazz = clazzMapper.getClazzOneToMany(2);
+    void getClazz() {
+        Clazz clazz = clazzMapper.getClazz(2);
         assertEquals("软件1911", clazz.getClazzName());
         assertEquals(2, clazz.getClazzId());
+        assertEquals(1, clazz.getTeacher().getTeacherId());
+        assertEquals("许老师",clazz.getTeacher().getTeacherName());
         assertEquals(1, clazz.getStudents().size());
 
-//        System.out.println(clazz.getClazzId() + "," + clazz.getClazzName());
-//        clazz.getStudents().forEach(student -> System.out.println(student.getStudentId() + "," + student.getHometown()));
+        System.out.println("班级信息：");
+        System.out.println(clazz.getClazzId() + "," + clazz.getClazzName());
+        System.out.println("班级教师信息：");
+        System.out.println(clazz.getTeacher().getTeacherId() + "," + clazz.getTeacher().getTeacherName());
+        System.out.println("班级学生:");
+        clazz.getStudents().forEach(student -> System.out.println(student.getStudentName() + "," + student.getHometown()));
+
     }
 }

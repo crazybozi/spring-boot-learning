@@ -4,6 +4,10 @@
     <resultMap id="clazzMap" type="com.ffz.boot.mybatis.domain.Clazz">
         <id column="clazz_id" property="clazzId"/>
         <result column="clazz_name" property="clazzName"/>
+        <association property="teacher" javaType="Teacher">
+            <id column="teacher_id" property="teacherId"/>
+            <result column="teacher_name" property="teacherName"/>
+        </association>
         <collection property="students" ofType="Student">
             <id column="student_id" property="studentId"/>
             <result column="student_name" property="studentName"/>
@@ -11,11 +15,17 @@
         </collection>
     </resultMap>
 
-    <select id="getClazzOneToMany" resultMap="clazzMap" parameterType="int">
-        select c.clazz_id, c.clazz_name, s.student_id, s.hometown,s.student_name
-        from t_clazz c,
-             t_student s
+    <select id="getClazz" resultMap="clazzMap" parameterType="int">
+        select c.clazz_id, c.clazz_name, t.teacher_id, t.teacher_name, s.student_id, s.student_name, s.hometown
+        from t_clazz c
+                     left join
+                     t_teacher t
+                             on c.clazz_id = t,clazz_id
+                     left join
+                     t_student s
+                             on c.clazz_id = s.clazz_id
         where c.clazz_id =#{clazzId}
-        and c.clazz_id = s.clazz_id
     </select>
+
+
 </mapper>

@@ -12,6 +12,15 @@ import java.util.List;
   *Description
   */
 public interface StudentMapper {
+
+    /**
+     *根据学生id查询 （关联查询出所属班级信息，所选课程信息）
+     *
+     * @param studentId 学生id
+     * @return student对象
+     */
+    Student getStudent(int studentId);
+
     /**
      * 新增学生
      *
@@ -76,4 +85,10 @@ public interface StudentMapper {
      * @return List<Student>
      */
     List<Student> selectByDynamicSql(Student student);
+
+    /**
+     * @param studentId 学生id
+     * @return student 查询
+     **/
+    Student getStudentManyToOne(int studentId);
 }

@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ffz.boot.mybatis.mapper.StudentMapper">
-  <resultMap id="BaseResultMap" type="Student">
-    <id column="student_id" jdbcType="INTEGER" property="studentId"/>
-    <result column="clazz_id" jdbcType="INTEGER" property="clazzId"/>
-    <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
-    <result column="hometown" jdbcType="VARCHAR" property="hometown"/>
-    <result column="birthday" jdbcType="DATE" property="birthday"/>
-    <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+  <resultMap id="studentMap" type="Student">
+    <id column="student_id" property="studentId"/>
+    <result column="student_name" property="studentName"/>
+    <result column="hometown" property="hometown"/>
+    <result column="birthday" property="birthday"/>
+    <association property="clazz" javaType="Clazz">
+      <id column="clazz_id" property="clazzId"/>
+      <result column="clazz_name" property="clazzName"/>
+    </association>
+    <collection property="courses" ofType="Course">
+      <id column="course_id" property="courseId"/>
+      <result column="course_name" property="courseName"/>
+    </collection>
   </resultMap>
 
-  <sql id="Base_Column_List">
-    `student_id`,
-    `clazz_id`,
-    `student_name`,
-    `hometown`,
-    `birthday`
-  </sql>
+  <select id="getStudent" resultMap="studentMap" parameterType="int">
+
+    select s.student_id,
+           student_name,
+           s.hometown,
+           s.birthday,
+           c.clazz_id,
+           c.clazz_name,
+           cc.course_id,
+           cc.course_name
+    from t_student s
+                 left join t_clazz c
+            on s.clazz_id = c.clazz_id
+                 left join t_course_student ts
+            on s.student_id = ts.student_id
+                 left join t_course cc
+            on ts.course_id = cc.course_id
+    where s.student_id = #{studentId}
+  </select>
 
   <insert id="insert" keyColumn="student_id" keyProperty="studentId"
           parameterType="com.ffz.boot.mybatis.domain.Student" useGeneratedKeys="true">
@@ -26,9 +44,8 @@
     #{birthday,jdbcType=DATE})
   </insert>
 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.ffz.boot.mybatis.domain.Student">
+    select *
     from `t_student`
     where `student_id` = #{studentId,jdbcType=INTEGER}
   </select>
@@ -61,7 +78,7 @@
   <insert id="batchInsert" parameterType="Student">
     insert into t_student values
     <foreach collection="students" item="student" index="index" separator=",">
-      (#{student.studentId}, #{student.clazzId}, #{student.studentName}, #{student.hometown}, #{student.birthday},#{student.teacherId})
+      (#{student.studentId}, #{student.clazzId}, #{student.studentName}, #{student.hometown}, #{student.birthday})
     </foreach>
   </insert>
 
@@ -108,4 +125,14 @@
       </when>
     </choose>
   </select>
+
+  <select id="getStudentManyToOne" resultMap="studentMap">
+    select s.student_id, s.student_name, s.hometown, c.clazz_id, c.clazz_name
+    from t_student s,
+         t_clazz c
+    where s.student_id = #{studentId}
+    and s.clazz_id = c.clazz_id
+
+  </select>
+
 </mapper>
