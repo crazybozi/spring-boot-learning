@@ -69,7 +69,6 @@ class StudentMapperTest {
                     .studentName("测试学生" + i)
                     .hometown("测试城市")
                     .birthday(LocalDate.of(1999, 10, 10))
-                    .teacherId(1)
                     .build();
             students.add(student);
         }

@@ -13,18 +13,10 @@ import java.util.List;
   */
 public interface TeacherMapper {
     /**
-     *返回所有的Teacher,用注解实现
-     *
-     *  @return List<Teacher>
+     * 教师班级一对一
+     * @param teacherId
+     * @return teacher对象
      */
-    @Select("SELECT * FROM t_teacher")
-    List<Teacher> selectAll();
+    Teacher getTeacherOneByOne(int teacherId);
 
-    /**
-     * 返回所有的teacher，用xml实现
-     * @return List<Teacehr>
-     */
-    List<Teacher> findAll();
-
-    void insertTeacher(Teacher teacher);
 }

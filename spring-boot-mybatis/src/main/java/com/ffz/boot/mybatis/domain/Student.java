@@ -44,5 +44,8 @@ public class Student {
     */
     private LocalDate birthday;
 
-    private Integer teacherId;
+    /**
+     * 在多方里，声明一方的对象
+     */
+    private Clazz clazz;
 }

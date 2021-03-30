@@ -25,20 +25,8 @@ class TeacherMapperTest {
     private TeacherMapper teacherMapper;
 
     @Test
-    void selectAll() {
-        List<Teacher> teacherList = teacherMapper.selectAll();
-        System.out.println(teacherList);
-    }
-
-    @Test
-    void findAll() {
-        List<Teacher> teacherList = teacherMapper.selectAll();
-        System.out.println(teacherList);
-    }
-
-    @Test
-    void insertTeacher() {
-        Teacher teacher = Teacher.builder().teacherName("李老师").clazzId(1).build();
-        teacherMapper.insertTeacher(teacher);
+    void getTeacherOneByOne() {
+       Teacher teacher= teacherMapper.getTeacherOneByOne((1));
+       System.out.println(teacher);
     }
 }
