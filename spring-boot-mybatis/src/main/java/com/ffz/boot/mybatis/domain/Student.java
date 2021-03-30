@@ -1,10 +1,12 @@
 package com.ffz.boot.mybatis.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.tomcat.jni.Local;
 
 /**
   *Classname com.ffz.boot.mybatis.domain.Student
@@ -40,10 +42,7 @@ public class Student {
     /**
     * 出生日期
     */
-    private Date birthday;
+    private LocalDate birthday;
 
-    /**
-    * 班级管理老师的id
-    */
     private Integer teacherId;
 }
